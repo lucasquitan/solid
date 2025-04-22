@@ -131,7 +131,7 @@ docker-compose down
 
 ### Non-Functional Requirements (RNFs)
 - [x] Password encryption
-- [ ] PostgreSQL data persistence
+- [x] PostgreSQL data persistence
 - [ ] Pagination (20 items per page)
 - [ ] JWT user identification
 
