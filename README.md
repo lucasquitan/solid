@@ -107,22 +107,33 @@ To stop the database:
 docker-compose down
 ```
 
-## API Endpoints
+## Implementation Progress
 
-### Users
-- `POST /users` - Create a new user
-- `POST /sessions` - User authentication
-- `GET /me` - Get authenticated user profile
+### Functional Requirements (RFs)
+- [x] User registration
+- [x] User authentication
+- [ ] User profile retrieval
+- [ ] Check-in count retrieval
+- [ ] Check-in history retrieval
+- [ ] Nearby gym search (up to 10km)
+- [ ] Gym search by name
+- [ ] Gym check-in functionality
+- [ ] Check-in validation
+- [ ] Gym registration
 
-### Gyms
-- `POST /gyms` - Register a new gym
-- `GET /gyms` - List all gyms
-- `GET /gyms/:id` - Get gym details
+### Business Rules (RNs)
+- [x] Prevent duplicate email registration
+- [ ] Prevent multiple check-ins on the same day
+- [ ] Validate check-in proximity (100m from gym)
+- [ ] Validate check-ins within 20 minutes of creation
+- [ ] Restrict check-in validation to administrators
+- [ ] Restrict gym registration to administrators
 
-### Check-ins
-- `POST /check-ins` - Create a new check-in
-- `GET /check-ins/history` - Get user's check-in history
-- `PATCH /check-ins/:id/validate` - Validate a check-in
+### Non-Functional Requirements (RNFs)
+- [x] Password encryption
+- [ ] PostgreSQL data persistence
+- [ ] Pagination (20 items per page)
+- [ ] JWT user identification
 
 ## Business Rules
 
