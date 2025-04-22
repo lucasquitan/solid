@@ -1,6 +1,7 @@
 // Import the hash function from bcryptjs for password hashing
 import { hash } from 'bcryptjs'
 import { UsersRepository } from '@/repositories/users-repository'
+import { UserAlreadyExistsError } from './errors/user-already-exists-error'
 // Define the interface for the request object used in the registration service
 interface RegisterServiceRequest {
   name: string // User's name
@@ -21,7 +22,7 @@ export class RegisterService {
 
     // If a user with the same email is found, throw an error
     if (userWithSameEmail) {
-      throw new Error('The e-mail address is already in use.') // Error message for duplicate email
+      throw new UserAlreadyExistsError() // Error message for user already exists
     }
 
     // Create a new user in the database
