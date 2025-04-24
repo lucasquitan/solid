@@ -29,10 +29,6 @@ export async function authenticate(
       return reply.status(400).send({ message: err.message })
     }
 
-    if (err instanceof InvalidCredentialsError) {
-      return reply.status(400).send({ message: err.message })
-    }
-
     throw err
   }
 
