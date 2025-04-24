@@ -1,9 +1,8 @@
 // Import types from Fastify and zod for handling requests and validation
 import { FastifyRequest, FastifyReply } from 'fastify' // Fastify request and reply object types
 import { z } from 'zod' // Schema validation library
-import { RegisterService } from '@/services/register' // Service for handling user registration logic
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository' // Repository for interacting with the user database
 import { UserAlreadyExistsError } from '@/services/errors/user-already-exists-error' // Custom error for existing user scenario
+import { makeRegisterService } from '@/services/factories/make-register-service'
 
 /**
  * Controller function for user registration
@@ -22,10 +21,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
   const { name, email, password } = registerBodySchema.parse(request.body)
 
   try {
-    // Instantiate the user repository for database operations
-    const userRepository = new PrismaUsersRepository()
-    // Instantiate the registration service with the user repository
-    const registerService = new RegisterService(userRepository)
+    const registerService = makeRegisterService()
     // Execute user registration with the provided details
     await registerService.execute({ name, email, password })
   } catch (err) {
