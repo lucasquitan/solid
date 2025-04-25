@@ -54,28 +54,33 @@ JWT_SECRET="your-secret-key"
 
 ## Installation
 
-1. Clone the repository:
+1 - Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/solid.git
 cd solid
 ```
 
-2. Install dependencies:
+2 - Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Start the database using Docker:
+3 - Start the database using Docker:
+
 ```bash
 docker-compose up -d
 ```
 
-4. Set up the database:
+4 - Set up the database:
+
 ```bash
 npx prisma migrate dev
 ```
 
-5. Start the development server:
+5 - Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -99,37 +104,42 @@ services:
 
 To start the database:
 ```bash
+
 docker-compose up -d
 ```
 
 To stop the database:
 ```bash
+
 docker-compose down
 ```
 
 ## Implementation Progress
 
 ### Functional Requirements (RFs)
+
 - [x] User registration
 - [x] User authentication
-- [ ] User profile retrieval
+- [x] User profile retrieval
 - [ ] Check-in count retrieval
 - [ ] Check-in history retrieval
 - [ ] Nearby gym search (up to 10km)
 - [ ] Gym search by name
-- [ ] Gym check-in functionality
+- [x] Gym check-in functionality
 - [ ] Check-in validation
-- [ ] Gym registration
+- [x] Gym registration
 
 ### Business Rules (RNs)
+
 - [x] Prevent duplicate email registration
-- [ ] Prevent multiple check-ins on the same day
-- [ ] Validate check-in proximity (100m from gym)
+- [x] Prevent multiple check-ins on the same day
+- [x] Validate check-in proximity (100m from gym)
 - [ ] Validate check-ins within 20 minutes of creation
 - [ ] Restrict check-in validation to administrators
 - [ ] Restrict gym registration to administrators
 
 ### Non-Functional Requirements (RNFs)
+
 - [x] Password encryption
 - [x] PostgreSQL data persistence
 - [ ] Pagination (20 items per page)
